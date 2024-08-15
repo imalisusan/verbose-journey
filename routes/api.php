@@ -10,4 +10,3 @@ Route::get('/test', function (Request $request) {
         'message' => 'API route is working!',
     ]);
 });
-
