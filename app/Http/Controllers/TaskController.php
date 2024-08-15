@@ -55,15 +55,18 @@ class TaskController extends Controller
         return response()->json(['success' => true]);
     }
 
-    public function edit(Task $task)
+    public function edit($slug)
     {
+        $task = Task::where('slug', $slug)->firstOrFail();
         $projects = Project::all();
 
         return view('tasks.edit', compact('task', 'projects'));
     }
 
-    public function update(Request $request, Task $task)
+    public function update(Request $request, $slug)
     {
+        $task = Task::where('slug', $slug)->firstOrFail();
+
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'project_id' => 'required|exists:projects,id',
@@ -76,8 +79,9 @@ class TaskController extends Controller
         return redirect()->route('tasks.index')->with('success', 'Task updated successfully!');
     }
 
-    public function destroy(Task $task)
+    public function destroy($slug)
     {
+        $task = Task::where('slug', $slug)->firstOrFail();
         $task->delete();
 
         return redirect()->route('tasks.index')->with('success', 'Task deleted successfully!');
