@@ -9,7 +9,25 @@
 </head>
 <body>
 <div class="container mt-5">
-    <h2 class="mb-4">Task List</h2>
+    <h2 class="mb-4">View Tasks</h2>
+<div class="float-left">
+    
+        <!-- Project Dropdown -->
+        <form action="{{ route('tasks.index') }}" method="GET" class="form-inline mb-4">
+            <div class="form-group">
+                <label for="project" class="mr-2">You are now viewing:</label>
+                <select name="project_id" id="project" class="form-control">
+                    <option value="">All Projects</option>
+                    @foreach($projects as $project)
+                        <option value="{{ $project->id }}" {{ $selectedProject == $project->id ? 'selected' : '' }}>
+                            {{ $project->name }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary ml-2">Filter</button>
+        </form>
+</div>
 
     <!-- Create New Task Button floated to the right -->
     <div class="clearfix mb-3">
@@ -60,7 +78,8 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
 <script>
-  var el = document.getElementById('sortable');
+    // Initialize Sortable
+    var el = document.getElementById('sortable');
     var sortable = Sortable.create(el, {
         onEnd: function (evt) {
             var order = [];
@@ -87,7 +106,6 @@
             });
         }
     });
-
 </script>
 </body>
 </html>
