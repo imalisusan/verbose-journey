@@ -76,7 +76,7 @@ The application will be available at http://localhost:8000 where you can create 
 
 ## License
 Alternatively, you can watch a video demo I have prepared to make your work easier:
-**[Click here!](https://vehikl.com/)**
+**[Click here!](https://drive.google.com/file/d/1oZPYTUphqiokfbHQGYEDwdYC9BXleK5W/view?usp=sharing)**
 
 
 
