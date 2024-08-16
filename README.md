@@ -25,7 +25,7 @@ This is a simple task management web application built using Laravel. The applic
    cd <repository_directory>
     ```
 2. **Install Dependencies**
-Install PHP dependencies
+
    ```bash
    composer install
    ```
