@@ -4,15 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task List</title>
-    <!-- Include Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 <div class="container mt-5">
     <h2 class="mb-4">View Tasks</h2>
 <div class="float-left">
-    
-        <!-- Project Dropdown -->
         <form action="{{ route('tasks.index') }}" method="GET" class="form-inline mb-4">
             <div class="form-group">
                 <label for="project" class="mr-2">You are now viewing:</label>
@@ -29,19 +26,16 @@
         </form>
 </div>
 
-    <!-- Create New Task Button floated to the right -->
     <div class="clearfix mb-3">
         <a href="{{ route('tasks.create') }}" class="btn btn-primary float-right">Create New Task</a>
     </div>
 
-    <!-- Success Message -->
     @if (session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
         </div>
     @endif
 
-    <!-- Task Table -->
     <table class="table table-bordered" id="taskTable">
         <thead>
             <tr>
@@ -60,7 +54,6 @@
                     <td>
                         <a href="{{ route('tasks.edit', $task->slug) }}" class="btn btn-warning btn-sm">Edit</a>
 
-                        <!-- Delete Button with Form -->
                         <form action="{{ route('tasks.destroy', $task->slug) }}" method="POST" style="display:inline-block;">
                             @csrf
                             @method('DELETE')
@@ -100,7 +93,7 @@
                 },
                 success: function(response) {
                     if(response.success) {
-                        location.reload(); // Reload the page to reflect new priorities
+                        location.reload(); 
                     }
                 }
             });

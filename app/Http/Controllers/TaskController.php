@@ -11,7 +11,7 @@ class TaskController extends Controller
     public function index(Request $request)
     {
         $projects = Project::all();
-        $selectedProject = $request->input('project_id');
+        $selectedProject = $request->input('project');
 
         $tasks = Task::when($selectedProject, function ($query, $selectedProject) {
             return $query->where('project_id', $selectedProject);

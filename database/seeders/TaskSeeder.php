@@ -27,9 +27,9 @@ class TaskSeeder extends Seeder
 
         // Seed tasks for Project Beta
         $tasks = [
-            ['name' => 'Create database schema', 'priority' => 1, 'project_id' => $project2->id],
-            ['name' => 'Develop authentication module', 'priority' => 2, 'project_id' => $project2->id],
-            ['name' => 'Test application', 'priority' => 3, 'project_id' => $project2->id],
+            ['name' => 'Create database schema', 'priority' => 4, 'project_id' => $project2->id],
+            ['name' => 'Develop authentication module', 'priority' => 5, 'project_id' => $project2->id],
+            ['name' => 'Test application', 'priority' => 6, 'project_id' => $project2->id],
         ];
 
         foreach ($tasks as $task) {
