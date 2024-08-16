@@ -23,11 +23,14 @@ This is a simple task management web application built using Laravel. The applic
    ```bash
    git clone <repository_url>
    cd <repository_directory>
+   ```
 2. **Install Dependencies**
+
 Install PHP dependencies
    ```bash
    composer install
    ```
+    
     Install Javascript dependencies
    ```bash
    npm install
@@ -37,6 +40,7 @@ Install PHP dependencies
    yarn install
    ```
 3. **Environment Setup**
+
 Open the .env file and configure your database settings
     ```env
     DB_DATABASE=your_database_name
@@ -44,20 +48,25 @@ Open the .env file and configure your database settings
     DB_PASSWORD=your_database_password
     ```
 4. **Generate application key**
+
 Open the .env file and configure your database settings
     ```bash
     php artisan key:generate
     ```
+
+   php artisan db:seed
+   ```
 5. **Database Migration and Seeding**
+
 Run the migrations to create the database tables:
    ```bash
    php artisan migrate
    ```
     Seed the database with sample data:
-   ```bash
+     ```bash
    php artisan db:seed
-   ```
 6. **Compile the assets**
+
 Open the .env file and configure your database settings
    ```bash
    npm run dev
@@ -65,8 +74,13 @@ Open the .env file and configure your database settings
     or
      ```bash
    yarn run dev
+
+   ```bash
+
    ```
-4. **Serve the application**
+   
+   
+7. **Serve the application**
 Open the .env file and configure your database settings
     ```bash
     php artisan serve
