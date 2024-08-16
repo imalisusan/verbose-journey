@@ -36,7 +36,7 @@ class TaskController extends Controller
         $task = new Task;
         $task->name = $validatedData['name'];
         $task->project_id = $validatedData['project_id'];
-        $task->priority = Task::where('project_id', $validatedData['project_id'])->max('priority') + 1;
+        $task->priority = Task::count() + 1;
         $task->save();
 
         return redirect()->route('tasks.index')->with('success', 'Task created successfully!');
