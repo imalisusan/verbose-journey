@@ -71,7 +71,6 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
 <script>
-    // Initialize Sortable
     var el = document.getElementById('sortable');
     var sortable = Sortable.create(el, {
         onEnd: function (evt) {
@@ -83,7 +82,6 @@
                 });
             });
 
-            // Send the order array to the backend
             $.ajax({
                 url: "{{ route('tasks.reorder') }}",
                 method: 'POST',

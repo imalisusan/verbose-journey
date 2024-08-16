@@ -9,14 +9,19 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/tasks', [TaskController::class, 'index'])->name('tasks.index');
-    Route::post('/tasks', [TaskController::class, 'store'])->name('tasks.store');
-    Route::get('/tasks/create', [TaskController::class, 'create'])->name('tasks.create');
-    Route::get('/tasks/{slug}/edit', [TaskController::class, 'edit'])->name('tasks.edit');
-    Route::put('/tasks/{slug}', [TaskController::class, 'update'])->name('tasks.update');
-    Route::delete('/tasks/{slug}', [TaskController::class, 'destroy'])->name('tasks.destroy');
-    Route::post('/tasks/reorder', [TaskController::class, 'reorder'])->name('tasks.reorder');
 
+    // Task management routes
+    Route::prefix('tasks')->name('tasks.')->group(function () {
+        Route::get('/', [TaskController::class, 'index'])->name('index');
+        Route::get('/create', [TaskController::class, 'create'])->name('create');
+        Route::post('/', [TaskController::class, 'store'])->name('store');
+        Route::get('/{slug}/edit', [TaskController::class, 'edit'])->name('edit');
+        Route::put('/{slug}', [TaskController::class, 'update'])->name('update');
+        Route::delete('/{slug}', [TaskController::class, 'destroy'])->name('destroy');
+        Route::post('/reorder', [TaskController::class, 'reorder'])->name('reorder');
+    });
+
+    // Project management routes
     Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
 
 });
