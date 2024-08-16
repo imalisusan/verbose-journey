@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Project;
 use App\Models\Task;
+use App\Models\Project;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreTaskRequest;
+use App\Http\Requests\UpdateTaskRequest;
 
 class TaskController extends Controller
 {
@@ -27,14 +29,11 @@ class TaskController extends Controller
         return view('tasks.create', compact('projects'));
     }
 
-    public function store(Request $request)
+    public function store(StoreTaskRequest $request)
     {
-        $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'project_id' => 'required|exists:projects,id',
-        ]);
+        $validatedData = $request->validated();
 
-        $task = new Task;
+        $task = new Task();
         $task->name = $validatedData['name'];
         $task->project_id = $validatedData['project_id'];
         $task->priority = Task::where('project_id', $validatedData['project_id'])->max('priority') + 1;
@@ -43,6 +42,7 @@ class TaskController extends Controller
         return redirect()->route('tasks.index')->with('success', 'Task created successfully!');
     }
 
+    
     public function reorder(Request $request)
     {
         $order = $request->order;
@@ -63,14 +63,10 @@ class TaskController extends Controller
         return view('tasks.edit', compact('task', 'projects'));
     }
 
-    public function update(Request $request, $slug)
+    public function update(UpdateTaskRequest $request, $slug)
     {
         $task = Task::where('slug', $slug)->firstOrFail();
-
-        $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'project_id' => 'required|exists:projects,id',
-        ]);
+        $validatedData = $request->validated();
 
         $task->name = $validatedData['name'];
         $task->project_id = $validatedData['project_id'];
