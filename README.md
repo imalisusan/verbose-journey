@@ -37,7 +37,6 @@ Install PHP dependencies
    yarn install
    ```
 3. **Environment Setup**
-
 Open the .env file and configure your database settings
     ```env
     DB_DATABASE=your_database_name
@@ -45,13 +44,11 @@ Open the .env file and configure your database settings
     DB_PASSWORD=your_database_password
     ```
 4. **Generate application key**
-
 Open the .env file and configure your database settings
     ```bash
     php artisan key:generate
     ```
 5. **Database Migration and Seeding**
-
 Run the migrations to create the database tables:
    ```bash
    php artisan migrate
@@ -70,7 +67,6 @@ Open the .env file and configure your database settings
    yarn run dev
    ```
 4. **Serve the application**
-
 Open the .env file and configure your database settings
     ```bash
     php artisan serve
@@ -89,6 +85,5 @@ Alternatively, you can watch a video demo I have prepared to make your work easi
 MIT
 
 **Free Software!**
-
 
 
