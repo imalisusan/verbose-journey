@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Task;
-use App\Models\Project;
-use Illuminate\Http\Request;
 use App\Http\Requests\StoreTaskRequest;
 use App\Http\Requests\UpdateTaskRequest;
+use App\Models\Project;
+use App\Models\Task;
+use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
@@ -33,7 +33,7 @@ class TaskController extends Controller
     {
         $validatedData = $request->validated();
 
-        $task = new Task();
+        $task = new Task;
         $task->name = $validatedData['name'];
         $task->project_id = $validatedData['project_id'];
         $task->priority = Task::where('project_id', $validatedData['project_id'])->max('priority') + 1;
@@ -42,7 +42,6 @@ class TaskController extends Controller
         return redirect()->route('tasks.index')->with('success', 'Task created successfully!');
     }
 
-    
     public function reorder(Request $request)
     {
         $order = $request->order;
