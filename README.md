@@ -72,7 +72,7 @@ Open the .env file and configure your database settings
     php artisan serve
     ```
 
-The application will be available at http://localhost:8000 where ypu can create an account and view the seeded tasks and continue to test the application 
+The application will be available at http://localhost:8000 where you can create an account, and view the seeded tasks and continue to test the application 
 
 ## License
 Alternatively, you can watch a video demo I have prepared to make your work easier:
