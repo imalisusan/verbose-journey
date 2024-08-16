@@ -75,7 +75,7 @@ Open the .env file and configure your database settings
 The application will be available at http://localhost:8000 where ypu can create an account and view the seeded tasks and continue to test the application 
 
 ## License
-Alternaitveily, you can watch a video demo I have prepared to make your work easier:
+Alternatively, you can watch a video demo I have prepared to make your work easier:
 **[Click here!](https://vehikl.com/)**
 
 
